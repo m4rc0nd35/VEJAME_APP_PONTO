@@ -1,5 +1,6 @@
 ﻿import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtLoadSetup 1.12
 
 ApplicationWindow {
     id: window
@@ -7,6 +8,14 @@ ApplicationWindow {
     width: 640
     height: 480
     title: qsTr("Scroll")
+
+    LoadSetup {
+        id: loadSetup
+    }
+
+    Component.onCompleted: {
+        loadSetup.initApp()
+    }
 
     ScrollView {
         anchors.fill: parent
