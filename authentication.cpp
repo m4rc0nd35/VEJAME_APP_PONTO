@@ -10,9 +10,9 @@ void Authentication::login(QString username, QString passwd)
     QJsonObject dataUser;
     dataUser.insert("username", username);
     dataUser.insert("password", passwd);
-    dataUser.insert("qt_version", passwd);
-    dataUser.insert("prettyProductName", passwd);
-    dataUser.insert("ip_local", passwd);
+    dataUser.insert("qt_version", QT_VERSION);
+    dataUser.insert("prettyProductName", prettyProductName());
+    dataUser.insert("ip_local", ipLocal());
     request("/app/_auth_mobile","GET", dataUser);
     qDebug() << dataUser << endl;
 }

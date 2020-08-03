@@ -3,8 +3,8 @@
 Agendamento::Agendamento(QObject *parent) : RequestApi(parent)
 {
     m_aganda = new AbstractListModel({"id","nome","atraso","entrada","saida","state"});
-    m_presente = new AbstractListModel({""});
-    m_saida = new AbstractListModel({""});
+    m_presente = new AbstractListModel({"id","tempoExcedido","nome","state","entrada","saida"});
+    m_saida = new AbstractListModel({"id","nome","state","entrada","saida"});
 
     connect(this, SIGNAL(apiJsonObjectFinished(QJsonObject)), this, SLOT(jsonApi(QJsonObject)));
 }
@@ -44,20 +44,18 @@ void Agendamento::jsonApi(QJsonObject json)
         m_totalPresente = json["content"].toObject()["presente"].toInt();
     }
     else if(m_flag == "refreshPresente")
-        m_aganda->reload(json["content"].toArray());
+        m_presente->reload(json["content"].toArray());
 
     else if(m_flag == "refreshSaida")
-        m_aganda->reload(json["content"].toArray());
+        m_saida->reload(json["content"].toArray());
 
     else if(m_flag == "agendaState")
     {
         QJsonObject content = json["content"].toObject();
-        qDebug() << content << endl;
         m_aganda->reload(content["listaAgenda"].toArray());
         m_presente->reload(content["listaPresente"].toArray());
         m_saida->reload(content["listaSaida"].toArray());
         m_totalPresente = content["presente"].toInt();
     }
-
     emit successChanged();
 }

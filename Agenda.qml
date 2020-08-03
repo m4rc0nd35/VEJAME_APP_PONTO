@@ -12,7 +12,7 @@ Page {
     property int id_agenda: 0
     property string nomeAgenda: null
 
-    Component.objectName: agendamento.refreshAgenda()
+    Component.onCompleted: agendamento.refreshAgenda()
 
     ListView {
         anchors.fill: parent
@@ -33,7 +33,7 @@ Page {
                     anchors.verticalCenter: idRow.verticalCenter
                     width: 43
                     height: 43
-                    color: atraso ? "#161616":"#94999E"
+                    color: atraso ? "#e63900":"#94999E"
                     radius: 3
                     Text {
                         anchors.centerIn: idStatus

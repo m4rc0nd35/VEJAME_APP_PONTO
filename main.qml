@@ -27,7 +27,10 @@ ApplicationWindow {
 
     Agendamento {
         id: agendamento
-        onUnauthorizedApiStatusChanged: toastVisible = true
+        onUnauthorizedApiStatusChanged: {
+            msgs = "Autenticação inválida!"
+            toastVisible = true
+        }
         onLoadingShow: loadingApi.visible = show
     }
 

@@ -24,6 +24,14 @@ Page {
             anchors.centerIn: parent
             color: "#94999E"
         }
+        Label{
+            anchors.right: parent.right
+            anchors.rightMargin: 8
+            anchors.verticalCenter: parent.verticalCenter
+            text: agendamento.totalPresente+"/"+authentication.dataUser.limite_agendamento
+            color: "#94999E"
+        }
+
         DropShadow {
             anchors.fill: idLabel
             horizontalOffset: 3
@@ -50,42 +58,22 @@ Page {
                 id: menu
                 width: parent.width
                 Text {
-                    id: userNome
-                    anchors.top: menu.top
-                    anchors.topMargin: 5
-                    anchors.left: imgUser.right
-                    anchors.margins: 8
+                    id: nomePonto
+                    anchors.verticalCenter: menu.verticalCenter
+                    anchors.left: menu.left
+                    anchors.leftMargin: 10
                     color: "#FFFFFF"
                     font.pointSize: 12
-                    text: qsTr("NOME PONTO")
+                    text: authentication.dataUser.nome_ponto
                 }
                 DropShadow {
-                    anchors.fill: userNome
+                    anchors.fill: nomePonto
                     horizontalOffset: 3
                     verticalOffset: 2
                     radius: 5.0
                     samples: 17
                     color: "#161616"
-                    source: userNome
-                }
-                Text {
-                    id: userCpf
-                    anchors.top: userNome.bottom
-                    anchors.left: imgUser.right
-                    anchors.margins: 8
-                    color: "#94999E"
-                    font.pointSize: 12
-                    text: qsTr("CPF ")
-
-                }
-                DropShadow {
-                    anchors.fill: userCpf
-                    horizontalOffset: 3
-                    verticalOffset: 2
-                    radius: 5.0
-                    samples: 17
-                    color: "#161616"
-                    source: userCpf
+                    source: nomePonto
                 }
                 Rectangle {
                     anchors.bottom: menu.bottom
