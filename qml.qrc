@@ -2,5 +2,17 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>AuthenticationPage.qml</file>
+        <file>MainAppPage.qml</file>
+        <file>Agenda.qml</file>
+        <file>Presente.qml</file>
+        <file>Saida.qml</file>
+        <file>img/loading.gif</file>
+        <file>img/back.png</file>
+        <file>img/menu.png</file>
+        <file>img/entrada.png</file>
+        <file>img/saida.png</file>
+        <file>img/refresh.png</file>
+        <file>img/Prancheta.png</file>
     </qresource>
 </RCC>

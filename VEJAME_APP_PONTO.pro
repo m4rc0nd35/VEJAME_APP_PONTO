@@ -15,8 +15,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         abstractlistmodel.cpp \
+        agendamento.cpp \
+        authentication.cpp \
         infodevice.cpp \
-        loadsetup.cpp \
         main.cpp \
         requestapi.cpp
 
@@ -53,7 +54,8 @@ contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
 
 HEADERS += \
     abstractlistmodel.h \
+    agendamento.h \
+    authentication.h \
     infodevice.h \
-    loadsetup.h \
     requestapi.h
 
